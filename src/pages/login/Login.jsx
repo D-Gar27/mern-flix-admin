@@ -15,10 +15,9 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      dispatch({ type: 'LOGIN_START'});
       const res = await axios.post(
         `${process.env.REACT_APP_API_URL}/auth/login`,
-        user
+        values
       );
       if (res.data.admin) {
         dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
