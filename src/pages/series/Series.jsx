@@ -28,7 +28,7 @@ const Series = () => {
       try {
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/movies`, {
           headers: {
-            token: `Bearer ${JSON.parse(localStorage.getItem('av')).token}`,
+            token: `Bearer ${localStorage.getItem('av')}`,
           },
         });
         const series = res.data.filter((movie) => movie.isSeries === true);

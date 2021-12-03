@@ -22,6 +22,9 @@ const Login = () => {
       );
       if (res.data.admin) {
         dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
+        if (typeof res.data.token === 'string') {
+          localStorage.setItem('av', res.data.token);
+        }
       } else {
         dispatch({ type: 'LOGIN_FAIL' });
       }
@@ -31,7 +34,6 @@ const Login = () => {
   };
   useEffect(() => {
     if (user) {
-      localStorage.setItem('av', user.token);
       navigate('/');
     }
   }, [user, navigate]);
