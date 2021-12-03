@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/authcontext/AuthContext.js';
-import { loginCall } from '../../context/fetch/fetch.js';
+// import { loginCall } from '../../context/fetch/fetch.js';
 import './Login.scss';
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const Login = () => {
+  const navigate = useNavigate();
   const { fetching, dispatch, user } = useContext(AuthContext);
   const [values, setValues] = useState({
     auth: '',
@@ -11,13 +14,26 @@ const Login = () => {
   });
   const handleLogin = async (e) => {
     e.preventDefault();
-    loginCall(values, dispatch);
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/login`,
+        user
+      );
+      if (res.data.admin) {
+        dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
+      } else {
+        dispatch({ type: 'LOGIN_FAIL' });
+      }
+    } catch (error) {
+      dispatch({ type: 'LOGIN_FAIL' });
+    }
   };
   useEffect(() => {
     if (user) {
-      window.location.assign('/');
+      localStorage.setItem('av', JSON.stringify(user.token));
+      navigate('/');
     }
-  }, [user]);
+  }, [user, navigate]);
   return (
     <section className="auth">
       <form className="login-form" onSubmit={handleLogin}>
