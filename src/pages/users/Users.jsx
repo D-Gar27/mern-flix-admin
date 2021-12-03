@@ -13,7 +13,7 @@ const Users = () => {
       try {
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/users`, {
           headers: {
-            token: `Bearer ${JSON.parse(localStorage.getItem('av')).token}`,
+            token: `Bearer ${localStorage.getItem('av')}`,
           },
         });
         setData(res.data);

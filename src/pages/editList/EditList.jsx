@@ -17,7 +17,7 @@ const EditList = () => {
           `${process.env.REACT_APP_API_URL}/lists/${listID}`,
           {
             headers: {
-              token: `Bearer ${JSON.parse(localStorage.getItem('av')).token}`,
+              token: `Bearer ${localStorage.getItem('av')}`,
             },
           }
         );

@@ -14,7 +14,7 @@ const Series = () => {
     try {
       await axios.delete(`${process.env.REACT_APP_API_URL}/movies/${id}`, {
         headers: {
-          token: `Bearer ${JSON.parse(localStorage.getItem('av')).token}`,
+          token: `Bearer ${localStorage.getItem('av')}`,
         },
       });
       dispatch({ type: 'DELETE_MOVIE', payload: id });

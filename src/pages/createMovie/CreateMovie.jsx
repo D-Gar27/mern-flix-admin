@@ -61,7 +61,7 @@ const CreateMovie = () => {
     try {
       await axios.post(`${process.env.REACT_APP_API_URL}/movies`, textValues, {
         headers: {
-          token: `Bearer ${JSON.parse(localStorage.getItem('av')).token}`,
+          token: `Bearer ${localStorage.getItem('av')}`,
         },
       });
       navigate('/movies');

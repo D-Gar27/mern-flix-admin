@@ -17,7 +17,7 @@ const Login = () => {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API_URL}/auth/login`,
-        user
+        values
       );
       if (res.data.admin) {
         dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
@@ -30,7 +30,7 @@ const Login = () => {
   };
   useEffect(() => {
     if (user) {
-      localStorage.setItem('av', JSON.stringify(user.token));
+      localStorage.setItem('av', user.token);
       navigate('/');
     }
   }, [user, navigate]);

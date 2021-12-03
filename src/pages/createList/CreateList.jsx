@@ -36,7 +36,7 @@ const CreateList = () => {
         { ...values, list: list },
         {
           headers: {
-            token: `Bearer ${JSON.parse(localStorage.getItem('av')).token}`,
+            token: `Bearer ${localStorage.getItem('av')}`,
           },
         }
       );

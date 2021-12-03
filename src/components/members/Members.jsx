@@ -13,8 +13,7 @@ const Members = () => {
           `${process.env.REACT_APP_API_URL}/users?new=true`,
           {
             headers: {
-              token:
-                'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2MWExY2NlMzE3M2ZiNWEwNjI4NWRiOGIiLCJhZG1pbiI6dHJ1ZSwiaWF0IjoxNjM4MTY2MzkyLCJleHAiOjE2Mzg3NzExOTJ9.vF81ULNIeKWxAEdAQdjMm6nyAPS3gpLq-yJGQRYV_eA',
+              token: `Bearer ${localStorage.getItem('av')}`,
             },
           }
         );
