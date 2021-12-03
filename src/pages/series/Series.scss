@@ -1,0 +1,30 @@
+@import '../../variables';
+
+.movies.page {
+  padding-inline: 2rem;
+  padding-bottom: 5rem;
+  .grid {
+    background-color: rgb(245, 245, 245);
+  }
+}
+
+.user-list {
+  @include flex(center, $column: false);
+  gap: 1em;
+  img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100vw;
+    object-fit: cover;
+  }
+}
+
+.action-btns {
+  @include flex(center, $column: false);
+  gap: 0.5em;
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}

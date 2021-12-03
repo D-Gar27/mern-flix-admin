@@ -1,0 +1,39 @@
+@import '../../variables';
+.nav-bar {
+  width: 100vw;
+  height: 3.5rem;
+  position: absolute;
+  background-color: $black;
+  @include flex(space-between, $column: false);
+  padding-inline: 2rem;
+  z-index: 100;
+  .logo {
+    color: $mainRed;
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+  }
+  .admin-profile {
+    @include flex(center, $column: false);
+    color: white;
+    gap: 0.5em;
+    .icon {
+      position: relative;
+      span {
+        position: absolute;
+        border-radius: 100vw;
+        background-color: $mainRed;
+        width: 1rem;
+        height: 1rem;
+        padding: 0.5em;
+        @include flex(center, $column: false);
+        font-size: 0.7rem;
+        top: -0.35em;
+        right: -0.5em;
+      }
+    }
+    .admin-photo {
+      width: 2rem;
+      border-radius: 100vw;
+      object-fit: cover;
+    }
+  }
+}

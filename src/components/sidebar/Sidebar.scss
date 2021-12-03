@@ -1,0 +1,52 @@
+@import '../../variables';
+
+.side-bar {
+  background-color: $darklightBlack;
+  color: white;
+  border-right: solid 0.25rem $lightBlack;
+  -webkit-position: sticky;
+  position: sticky;
+  bottom: 0;
+  flex: 2;
+  height: calc(100vh - 3.5rem);
+  margin-top: 3.5rem;
+  padding-right: 2rem;
+  z-index: 20;
+  .sidebar-container {
+    width: 110%;
+    padding-left: 1rem;
+    padding-top: 1.5rem;
+    .sidebar-menu + .sidebar-menu {
+      margin-top: 1rem;
+    }
+    .sidebar-menu {
+      .menu-name {
+        color: $notTooWhite;
+      }
+      .menu-options {
+        margin-top: 0.8rem;
+        @include flex(flex-start, $column: true);
+        gap: 0.25em;
+        li {
+          list-style: none;
+          cursor: pointer;
+          width: 100%;
+          .sidebar-link {
+            padding-block: 0.25em;
+            @include flex(flex-start, $column: false);
+            gap: 3px;
+            padding-left: 0.5em;
+            &:hover {
+              border-radius: 0.25em;
+              background-color: rgba($color: $gray, $alpha: 0.5);
+            }
+          }
+        }
+        .active {
+          border-radius: 0.25em;
+          background-color: rgba($color: $gray, $alpha: 0.5);
+        }
+      }
+    }
+  }
+}

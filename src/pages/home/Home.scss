@@ -1,0 +1,53 @@
+@import '../../variables';
+
+.home.page {
+  .profit-container {
+    width: 100%;
+    max-width: 60rem;
+    @include flex(space-around, $column: false);
+    gap: 5%;
+    margin-inline: auto;
+    .profit {
+      width: 100%;
+      -webkit-box-shadow: 0px 0px 22px -7px #ffffff;
+      box-shadow: 0px 0px 22px -7px #ffffff;
+      padding: 1.5rem;
+      background-color: $black;
+      border-radius: 0.5em;
+      h4 {
+        color: $gray;
+      }
+      .money-rate {
+        font-size: 1.5rem;
+        margin-block: 0.75em;
+        @include flex(flex-start, $column: false);
+        gap: 5%;
+        span {
+          @include flex(center, $column: false);
+          span {
+            font-size: 0.6em;
+          }
+
+          .arrow-down {
+            color: $mainRed;
+          }
+          .arrow-up {
+            color: springgreen;
+          }
+        }
+      }
+      .compared-to {
+        color: $gray;
+      }
+    }
+  }
+}
+
+.members-transactions {
+  width: 100%;
+  @include flex(center, $column: false);
+  gap: 5%;
+  max-width: 70rem;
+  margin-inline: auto;
+  margin-bottom: 5rem;
+}

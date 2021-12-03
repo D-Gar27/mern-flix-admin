@@ -1,0 +1,95 @@
+@import '../../variables';
+
+.edit-movie {
+  width: 100%;
+  height: 100vh;
+  margin: 0 !important;
+  position: relative;
+  .edit-movie-container {
+    height: 100%;
+    width: 100%;
+    @include flex(space-between, $column: false);
+    .text-input,
+    .file-input {
+      @include flex(space-between, $column: true);
+      margin-inline: auto;
+    }
+    .text-input {
+      border-radius: 0.5em;
+      padding: 2rem;
+      background-color: $lightBlack;
+      box-shadow: inset 0px 0px 1rem rgba($color: $black, $alpha: 1);
+      gap: 1em;
+      input[type='text'],
+      input[type='password'],
+      textarea {
+        background-color: $black;
+        color: white;
+        height: 2.5rem;
+        width: 20rem;
+        border: currentColor 1px solid;
+        border-radius: 0.5em;
+        padding-left: 0.5em;
+        font-size: 1.1rem;
+      }
+      textarea {
+        height: 10rem;
+        padding-top: 0.5em;
+      }
+      .radio {
+        @include flex(space-evenly, $column: false);
+        .label {
+          @include flex(center, $column: false);
+        }
+      }
+    }
+    .file-input {
+      border-radius: 0.5em;
+      padding: 2rem;
+      background-color: $lightBlack;
+      box-shadow: inset 0px 0px 1rem rgba($color: $black, $alpha: 1);
+      gap: 1.5em;
+      input {
+        display: none;
+      }
+      img {
+        width: 100%;
+      }
+      label {
+        @include flex(space-between, $column: false);
+        gap: 1em;
+      }
+      .hrz-poster {
+        max-width: 15rem;
+      }
+      .title-img {
+        max-width: 10rem;
+      }
+      .poster {
+        max-width: 10rem;
+      }
+      button {
+        border: $mainRed solid 2px;
+        background-color: $mainRed;
+        color: white;
+        font-size: 1.05rem;
+        border-radius: 0.5em;
+        padding-block: 0.35em;
+        margin-top: 1em;
+        cursor: pointer;
+        transition: 300ms all ease;
+        &:hover {
+          background-color: $secRed;
+        }
+      }
+    }
+  }
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+}
